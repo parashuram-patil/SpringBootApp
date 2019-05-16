@@ -1,4 +1,4 @@
-package com.example.psp.entity;
+package com.example.psp.citi.entity;
 
 import java.util.Objects;
 import javax.persistence.Entity;

@@ -1,4 +1,4 @@
-package com.example.psp.FirstSpringBootApp;
+package com.example.psp.main;
 
 import java.text.NumberFormat;
 
