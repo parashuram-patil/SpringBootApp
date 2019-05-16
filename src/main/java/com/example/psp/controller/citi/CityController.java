@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import com.example.psp.entity.citi.CityEntity;
 import com.example.psp.iservice.city.ICityService;
 
+import io.swagger.annotations.ApiOperation;
+
 @Controller
 public class CityController {
 
@@ -18,9 +20,9 @@ public class CityController {
 		this.cityService = cityService;
 	}
 
-	@GetMapping("/")
+	@ApiOperation(value = "", hidden=true)
 	public String index() {
-		
+
 		return "index";
 	}
 
