@@ -13,9 +13,15 @@ import com.example.psp.iservice.city.ICityService;
 public class CityController {
 
 	private ICityService cityService;
-	
+
 	public CityController(ICityService cityService) {
 		this.cityService = cityService;
+	}
+
+	@GetMapping("/")
+	public String index() {
+		
+		return "index";
 	}
 
 	@GetMapping("/showCities")
