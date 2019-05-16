@@ -1,4 +1,4 @@
-package com.example.psp.blog.entity;
+package com.example.psp.entity.blog;
 /*package com.example.psp.entity;
 
 import javax.persistence.Entity;

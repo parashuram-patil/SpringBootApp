@@ -1,12 +1,12 @@
-package com.example.psp.city.service;
+package com.example.psp.service.city;
 
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.example.psp.citi.entity.CityEntity;
-import com.example.psp.citi.repository.CityRepository;
-import com.example.psp.city.iservice.ICityService;
+import com.example.psp.entity.citi.CityEntity;
+import com.example.psp.iservice.city.ICityService;
+import com.example.psp.repository.citi.CityRepository;
 
 @Service
 public class CityService implements ICityService {

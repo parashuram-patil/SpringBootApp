@@ -1,4 +1,4 @@
-package com.example.psp.citi.controller;
+package com.example.psp.controller.citi;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

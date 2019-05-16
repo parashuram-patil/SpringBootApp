@@ -1,4 +1,4 @@
-package com.example.psp.citi.controller;
+package com.example.psp.controller.citi;
 
 import java.util.List;
 
@@ -6,8 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import com.example.psp.citi.entity.CityEntity;
-import com.example.psp.city.iservice.ICityService;
+import com.example.psp.entity.citi.CityEntity;
+import com.example.psp.iservice.city.ICityService;
 
 @Controller
 public class CityController {

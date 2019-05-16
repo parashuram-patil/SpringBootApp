@@ -1,8 +1,8 @@
-package com.example.psp.city.iservice;
+package com.example.psp.iservice.city;
 
 import java.util.List;
 
-import com.example.psp.citi.entity.CityEntity;
+import com.example.psp.entity.citi.CityEntity;
 
 public interface ICityService {
 
