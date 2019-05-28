@@ -1,6 +1,7 @@
 package com.example.psp.service.city;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -23,6 +24,27 @@ public class CityService implements ICityService {
 		List<CityEntity> cities = (List<CityEntity>) cityRepository.findAll();
 
 		return cities;
+	}
+
+	@Override
+	public CityEntity save(CityEntity cityEntity) {
+
+		return cityRepository.save(cityEntity);
+
+	}
+
+	@Override
+	public CityEntity findbyName(String cityName) {
+
+		CityEntity cityEntity = null;
+		
+		List<CityEntity> cityList = cityRepository.findByName(cityName);
+		
+		if(cityList.size() > 0) {
+			cityEntity = cityList.get(0);
+		}
+		
+		return cityEntity;
 	}
 
 }

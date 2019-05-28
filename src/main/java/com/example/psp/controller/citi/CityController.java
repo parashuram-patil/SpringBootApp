@@ -4,7 +4,9 @@ import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.support.BindingAwareModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -38,7 +40,6 @@ public class CityController {
 			@ApiResponse(code = 401, message = "You are not authorized to view the resource"),
 			@ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
 			@ApiResponse(code = 404, message = "The resource you were trying to reach is not found") })
-	@GetMapping("/showCities")
 	@RequestMapping(value = "/showCities", method = RequestMethod.GET, produces = "text/html")
 	public String findCities(Model model) {
 
@@ -47,5 +48,19 @@ public class CityController {
 		model.addAttribute("cities", cities);
 
 		return "showCities";
+	}
+
+	@RequestMapping(value = "/saveCity", method = RequestMethod.POST, produces = "text/html")
+	public String SaveCity(Model model, @RequestBody CityEntity city) {
+
+		CityEntity foundCity = cityService.findbyName(city.getName());
+		if (foundCity != null) {
+			foundCity.setPopulation(city.getPopulation());
+			cityService.save(foundCity);
+		} else {
+			cityService.save(city);
+		}
+
+		return findCities(model);
 	}
 }
