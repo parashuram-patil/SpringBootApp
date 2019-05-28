@@ -11,11 +11,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.example.psp.entity.citi.CityEntity;
 import com.example.psp.iservice.city.ICityService;
 
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
 @Controller
+@Api(tags = { "City" }, description = "Know your city")
 public class CityController {
 
 	private ICityService cityService;
@@ -31,7 +33,7 @@ public class CityController {
 		return "index";
 	}
 
-	@ApiOperation(value = "View a list of available products", response = CityEntity.class)
+	@ApiOperation(value = "View all Cities along with its population", response = CityEntity.class)
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Successfully retrieved All cities"),
 			@ApiResponse(code = 401, message = "You are not authorized to view the resource"),
 			@ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
