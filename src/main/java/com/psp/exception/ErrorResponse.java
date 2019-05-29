@@ -4,11 +4,18 @@ import java.time.LocalDateTime;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-public class CustomErrorResponse {
+import io.swagger.annotations.ApiModelProperty;
+
+public class ErrorResponse {
 
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd hh:mm:ss")
+	@ApiModelProperty(example = "9999-12-31 00:00:00")
 	private LocalDateTime timestamp;
+	
+	@ApiModelProperty(example = "404")
 	private int status;
+	
+	@ApiModelProperty(example = "Some meaningful error message")
 	private String error;
 
 	public LocalDateTime getTimestamp() {

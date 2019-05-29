@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.example.psp.entity.citi.CityEntity;
 import com.example.psp.iservice.city.ICityService;
 import com.example.psp.model.citi.CreateCityModel;
-import com.psp.exception.CustomErrorResponse;
+import com.psp.exception.ErrorResponse;
 import com.psp.exception.city.CityNotFoundException;
 
 import io.swagger.annotations.Api;
@@ -41,13 +41,13 @@ public class CityController {
 		return "index";
 	}
 
-	@ApiOperation(value = "View all Cities along with its population", response = CityEntity.class)
+	@ApiOperation(value = "View all Cities along with its population")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Successfully retrieved all cities"),
 			@ApiResponse(code = 401, message = "You are not authorized to view the resource"),
 			@ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
 			@ApiResponse(code = 404, message = "The resource you were trying to reach is not found") })
 	@RequestMapping(value = "/showCities", method = RequestMethod.GET, produces = "text/html")
-	public String findCities(Model model) {
+	public String showCities(Model model) {
 
 		List<CityEntity> cities = (List<CityEntity>) cityService.findAll();
 
@@ -57,7 +57,8 @@ public class CityController {
 	}
 
 	@ApiOperation(value = "Save City, creates if not present otherwise updates population")
-	@ApiResponses(value = { @ApiResponse(code = 200, message = "Successfully saved the City and retrieved all cities", response = CityEntity.class),
+	@ApiResponses(value = {
+			@ApiResponse(code = 200, message = "Successfully saved the City and retrieved all cities"),
 			@ApiResponse(code = 401, message = "You are not authorized to view the resource"),
 			@ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
 			@ApiResponse(code = 404, message = "The resource you were trying to reach is not found") })
@@ -66,16 +67,16 @@ public class CityController {
 
 		cityService.save(city);
 
-		return findCities(model);
+		return showCities(model);
 	}
 
 	@ApiOperation(value = "Search City by its name")
 	@ApiResponses(value = {
-			@ApiResponse(code = 200, message = "Successfully retrieved City with given name", response = CityEntity.class),
+			@ApiResponse(code = 200, message = "Successfully retrieved City with given name"),
 			// @ApiResponse(code = 200, message = "Successfully retrieved City with given name", response = CityEntity.class, examples = @Example(value = @ExampleProperty(value = "{\"id\":1,\"name\":\"MyCity\",\"population\":9999}", mediaType = "application/json"))),
 			@ApiResponse(code = 401, message = "You are not authorized to view the resource"),
 			@ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
-			@ApiResponse(code = 404, message = "The resource you were trying to reach is not found", response = CustomErrorResponse.class) })
+			@ApiResponse(code = 404, message = "The resource you were trying to reach is not found", response = ErrorResponse.class) })
 	@RequestMapping(value = "/searchCity/{cityName}", method = RequestMethod.GET, produces = "text/html")
 	public String searchCity(Model model,
 			@ApiParam(value = "Name of the City", required = true) @PathVariable String cityName)
