@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.example.psp.entity.citi.CityEntity;
 import com.example.psp.iservice.city.ICityService;
+import com.psp.exception.city.CityNotFoundException;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -73,7 +74,7 @@ public class CityController {
 			@ApiResponse(code = 404, message = "The resource you were trying to reach is not found") })
 	@RequestMapping(value = "/searchCity/{cityName}", method = RequestMethod.GET, produces = "text/html")
 	public String searchCity(Model model,
-			@ApiParam(value = "Name of the City", required = true) @PathVariable String cityName) {
+			@ApiParam(value = "Name of the City", required = true) @PathVariable String cityName) throws CityNotFoundException {
 
 		CityEntity foundCity = cityService.searchByName(cityName);
 

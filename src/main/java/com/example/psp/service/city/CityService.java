@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import com.example.psp.entity.citi.CityEntity;
 import com.example.psp.iservice.city.ICityService;
 import com.example.psp.repository.citi.CityRepository;
+import com.psp.exception.city.CityNotFoundException;
 
 @Service
 public class CityService implements ICityService {
@@ -27,29 +28,33 @@ public class CityService implements ICityService {
 
 	@Override
 	public CityEntity save(CityEntity city) {
-		
-		CityEntity foundCity = searchByName(city.getName());
-		if (foundCity != null) {
+
+		CityEntity savedCity;
+
+		try {
+			CityEntity foundCity = searchByName(city.getName());
 			foundCity.setPopulation(city.getPopulation());
-			cityRepository.save(foundCity);
-		} else {
-			cityRepository.save(city);
+			savedCity = cityRepository.save(foundCity);
+		} catch (CityNotFoundException e) {
+			savedCity = cityRepository.save(city);
 		}
-		
-		return (foundCity != null ? foundCity : city);
+
+		return savedCity;
 	}
 
 	@Override
-	public CityEntity searchByName(String cityName) {
+	public CityEntity searchByName(String cityName) throws CityNotFoundException {
 
-		CityEntity cityEntity = null;
+		CityEntity city;
 
 		List<CityEntity> cityList = cityRepository.findByName(cityName);
 
 		if (cityList.size() > 0) {
-			cityEntity = cityList.get(0);
+			city = cityList.get(0);
+		} else {
+			throw new CityNotFoundException();
 		}
-
-		return cityEntity;
+		
+		return city;
 	}
 }
