@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import com.example.psp.entity.citi.CityEntity;
 import com.example.psp.iservice.city.ICityService;
 import com.example.psp.model.citi.CreateCityModel;
+import com.example.psp.model.citi.GetCityModel;
 import com.example.psp.modelmpper.city.CityModelMpper;
 import com.example.psp.repository.citi.CityRepository;
 import com.psp.exception.city.CityNotFoundException;
@@ -21,15 +22,15 @@ public class CityService implements ICityService {
 	}
 
 	@Override
-	public List<CityEntity> findAll() {
+	public List<GetCityModel> findAll() {
 
 		List<CityEntity> cities = (List<CityEntity>) cityRepository.findAll();
 
-		return cities;
+		return CityModelMpper.getModel(cities);
 	}
 
 	@Override
-	public CityEntity save(CreateCityModel model) {
+	public GetCityModel save(CreateCityModel model) {
 
 		CityEntity savedCity;
 
@@ -41,22 +42,22 @@ public class CityService implements ICityService {
 			savedCity = cityRepository.save(CityModelMpper.getEntity(model));
 		}
 
-		return savedCity;
+		return CityModelMpper.getModel(savedCity);
 	}
 
 	@Override
-	public CityEntity searchByName(String cityName) throws CityNotFoundException {
+	public GetCityModel searchByName(String cityName) throws CityNotFoundException {
 
-		CityEntity city;
+		GetCityModel city;
 
 		List<CityEntity> cityList = cityRepository.findByName(cityName);
 
 		if (cityList.size() > 0) {
-			city = cityList.get(0);
+			city = CityModelMpper.getModel(cityList.get(0));
 		} else {
 			throw new CityNotFoundException(cityName);
 		}
-		
+
 		return city;
 	}
 }
