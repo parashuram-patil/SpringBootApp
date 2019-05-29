@@ -20,8 +20,4 @@ public class CityNotFoundException extends Exception {
 	public CityNotFoundException(Throwable throwable) {
 		super(message, throwable);
 	}
-
-	public CityNotFoundException(String message, Throwable throwable) {
-		super(message, throwable);
-	}
 }
