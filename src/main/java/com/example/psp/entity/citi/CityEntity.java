@@ -7,15 +7,21 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import io.swagger.annotations.ApiModelProperty;
+
 @Entity
 @Table(name = "city")
 public class CityEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@ApiModelProperty(required = true, example = "1")
 	private Long id;
 
+	@ApiModelProperty(required = true, example = "MyCity")
 	private String name;
+
+	@ApiModelProperty(required = true, example = "9999")
 	private int population;
 
 	public CityEntity() {
