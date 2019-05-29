@@ -1,4 +1,4 @@
-package com.example.psp.controller.citi;
+/*package com.example.psp.controller.citi;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -67,4 +67,4 @@ public class CityController {
 		return "showCities";
 	}
 
-}
+}*/
