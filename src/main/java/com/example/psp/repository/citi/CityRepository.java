@@ -12,7 +12,7 @@ import com.example.psp.entity.citi.CityEntity;
 @Repository
 public interface CityRepository extends JpaRepository<CityEntity, Long> {
 	
-	@Query("SELECT city FROM CityEntity city WHERE city.name = :name") 
+	@Query("SELECT city FROM CityEntity city WHERE LOWER(city.name) = LOWER(:name)") 
     List<CityEntity> findByName(@Param("name") String cityName);
 
 }
