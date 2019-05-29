@@ -1,4 +1,4 @@
-/*package com.example.psp.controller.citi;
+package com.example.psp.controller.citi;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.example.psp.entity.citi.CityEntity;
 import com.example.psp.iservice.city.ICityService;
 import com.example.psp.model.citi.CreateCityModel;
+import com.example.psp.model.citi.GetCityModel;
 import com.psp.exception.city.CityNotFoundException;
 
 import io.swagger.annotations.ApiParam;
@@ -40,7 +40,7 @@ public class CityController {
 	@RequestMapping(value = "/showCities", method = RequestMethod.GET, produces = "text/html")
 	public String showCities(Model model) {
 
-		List<CityEntity> cities = (List<CityEntity>) cityService.findAll();
+		List<GetCityModel> cities = (List<GetCityModel>) cityService.findAll();
 
 		model.addAttribute("cities", cities);
 
@@ -60,11 +60,11 @@ public class CityController {
 			@ApiParam(value = "Name of the City", required = true) @PathVariable String cityName)
 			throws CityNotFoundException {
 
-		CityEntity foundCity = cityService.searchByName(cityName);
+		GetCityModel foundCity = cityService.searchByName(cityName);
 
-		model.addAttribute("cities", new ArrayList<CityEntity>(Arrays.asList(foundCity)));
+		model.addAttribute("cities", new ArrayList<GetCityModel>(Arrays.asList(foundCity)));
 
 		return "showCities";
 	}
 
-}*/
+}
