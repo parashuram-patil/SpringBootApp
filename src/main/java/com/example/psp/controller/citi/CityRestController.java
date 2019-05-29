@@ -26,11 +26,11 @@ import io.swagger.annotations.ApiResponses;
 
 @Controller
 @Api(tags = { "City" }, description = "Know your city")
-public class CityController {
+public class CityRestController {
 
 	private ICityService cityService;
 
-	public CityController(ICityService cityService) {
+	public CityRestController(ICityService cityService) {
 		this.cityService = cityService;
 	}
 
