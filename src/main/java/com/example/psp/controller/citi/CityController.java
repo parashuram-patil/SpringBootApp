@@ -36,7 +36,7 @@ public class CityController {
 	}
 
 	@ApiOperation(value = "View all Cities along with its population", response = CityEntity.class)
-	@ApiResponses(value = { @ApiResponse(code = 200, message = "Successfully retrieved All cities"),
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "Successfully retrieved all cities"),
 			@ApiResponse(code = 401, message = "You are not authorized to view the resource"),
 			@ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
 			@ApiResponse(code = 404, message = "The resource you were trying to reach is not found") })
@@ -50,6 +50,11 @@ public class CityController {
 		return "showCities";
 	}
 
+	@ApiOperation(value = "Save City, creates if not present otherwise updates population", response = CityEntity.class)
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "Successfully saved the City and retrieved all cities"),
+			@ApiResponse(code = 401, message = "You are not authorized to view the resource"),
+			@ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
+			@ApiResponse(code = 404, message = "The resource you were trying to reach is not found") })
 	@RequestMapping(value = "/saveCity", method = RequestMethod.POST, produces = "text/html")
 	public String SaveCity(Model model, @RequestBody CityEntity city) {
 
