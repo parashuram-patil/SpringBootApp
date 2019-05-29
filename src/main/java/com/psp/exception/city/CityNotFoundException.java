@@ -10,11 +10,11 @@ public class CityNotFoundException extends Exception {
 	}
 
 	public CityNotFoundException(String cityName) {
-		super(message.replace(":msg", ("name " + cityName)));
+		super(message.replace(":msg", ("name '" + cityName + "'")));
 	}
 
 	public CityNotFoundException(Integer cityId) {
-		super(message.replace(":msg", ("id " + cityId)));
+		super(message.replace(":msg", ("id '" + cityId + "'")));
 	}
 
 	public CityNotFoundException(Throwable throwable) {
