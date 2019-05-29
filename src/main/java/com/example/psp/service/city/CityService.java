@@ -26,24 +26,30 @@ public class CityService implements ICityService {
 	}
 
 	@Override
-	public CityEntity save(CityEntity cityEntity) {
-
-		return cityRepository.save(cityEntity);
-
+	public CityEntity save(CityEntity city) {
+		
+		CityEntity foundCity = searchByName(city.getName());
+		if (foundCity != null) {
+			foundCity.setPopulation(city.getPopulation());
+			cityRepository.save(foundCity);
+		} else {
+			cityRepository.save(city);
+		}
+		
+		return (foundCity != null ? foundCity : city);
 	}
 
 	@Override
 	public CityEntity searchByName(String cityName) {
 
 		CityEntity cityEntity = null;
-		
+
 		List<CityEntity> cityList = cityRepository.findByName(cityName);
-		
-		if(cityList.size() > 0) {
+
+		if (cityList.size() > 0) {
 			cityEntity = cityList.get(0);
 		}
-		
+
 		return cityEntity;
 	}
-
 }

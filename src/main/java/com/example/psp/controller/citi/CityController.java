@@ -61,24 +61,19 @@ public class CityController {
 	@RequestMapping(value = "/saveCity", method = RequestMethod.POST, produces = "text/html")
 	public String SaveCity(Model model, @RequestBody CityEntity city) {
 
-		CityEntity foundCity = cityService.searchByName(city.getName());
-		if (foundCity != null) {
-			foundCity.setPopulation(city.getPopulation());
-			cityService.save(foundCity);
-		} else {
-			cityService.save(city);
-		}
+		cityService.save(city);
 
 		return findCities(model);
 	}
-	
+
 	@ApiOperation(value = "Search City by its name", response = CityEntity.class)
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Successfully retrieved City with given name"),
 			@ApiResponse(code = 401, message = "You are not authorized to view the resource"),
 			@ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
 			@ApiResponse(code = 404, message = "The resource you were trying to reach is not found") })
 	@RequestMapping(value = "/searchCity/{cityName}", method = RequestMethod.GET, produces = "text/html")
-	public String searchCity(Model model,  @ApiParam(value = "Name of the City", required = true) @PathVariable String cityName) {
+	public String searchCity(Model model,
+			@ApiParam(value = "Name of the City", required = true) @PathVariable String cityName) {
 
 		CityEntity foundCity = cityService.searchByName(cityName);
 
@@ -86,5 +81,5 @@ public class CityController {
 
 		return "showCities";
 	}
-	
+
 }
