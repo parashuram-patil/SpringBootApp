@@ -52,7 +52,7 @@ public class CityService implements ICityService {
 		if (cityList.size() > 0) {
 			city = cityList.get(0);
 		} else {
-			throw new CityNotFoundException();
+			throw new CityNotFoundException(cityName);
 		}
 		
 		return city;
