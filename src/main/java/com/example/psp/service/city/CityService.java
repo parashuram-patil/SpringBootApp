@@ -6,6 +6,8 @@ import org.springframework.stereotype.Service;
 
 import com.example.psp.entity.citi.CityEntity;
 import com.example.psp.iservice.city.ICityService;
+import com.example.psp.model.citi.CreateCityModel;
+import com.example.psp.modelmpper.city.CityModelMpper;
 import com.example.psp.repository.citi.CityRepository;
 import com.psp.exception.city.CityNotFoundException;
 
@@ -27,16 +29,16 @@ public class CityService implements ICityService {
 	}
 
 	@Override
-	public CityEntity save(CityEntity city) {
+	public CityEntity save(CreateCityModel model) {
 
 		CityEntity savedCity;
 
 		try {
-			CityEntity foundCity = searchByName(city.getName());
-			foundCity.setPopulation(city.getPopulation());
+			CityEntity foundCity = searchByName(model.getName());
+			foundCity.setPopulation(model.getPopulation());
 			savedCity = cityRepository.save(foundCity);
 		} catch (CityNotFoundException e) {
-			savedCity = cityRepository.save(city);
+			savedCity = cityRepository.save(CityModelMpper.getEntity(model));
 		}
 
 		return savedCity;

@@ -21,10 +21,10 @@ public class Test {
 
 	private static void testModelMapper() {
 		CreateCityModel cityModel = new CreateCityModel();
-		cityModel.setCityName("a");
+		cityModel.setName("a");
 		cityModel.setPopulation(1);
 		CityEntity cityEntity = new ModelMapper().map(cityModel, CityEntity.class);
-		assertEquals(cityEntity.getName(), cityModel.getCityName());
+		assertEquals(cityEntity.getName(), cityModel.getName());
 		assertEquals(cityEntity.getPopulation(), cityModel.getPopulation());
 	}
 

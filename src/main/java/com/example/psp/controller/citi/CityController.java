@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.example.psp.entity.citi.CityEntity;
 import com.example.psp.iservice.city.ICityService;
+import com.example.psp.model.citi.CreateCityModel;
 import com.psp.exception.CustomErrorResponse;
 import com.psp.exception.city.CityNotFoundException;
 
@@ -22,8 +23,6 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
-import io.swagger.annotations.Example;
-import io.swagger.annotations.ExampleProperty;
 
 @Controller
 @Api(tags = { "City" }, description = "Know your city")
@@ -57,13 +56,13 @@ public class CityController {
 		return "showCities";
 	}
 
-	@ApiOperation(value = "Save City, creates if not present otherwise updates population", response = CityEntity.class)
-	@ApiResponses(value = { @ApiResponse(code = 200, message = "Successfully saved the City and retrieved all cities"),
+	@ApiOperation(value = "Save City, creates if not present otherwise updates population")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "Successfully saved the City and retrieved all cities", response = CityEntity.class),
 			@ApiResponse(code = 401, message = "You are not authorized to view the resource"),
 			@ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
 			@ApiResponse(code = 404, message = "The resource you were trying to reach is not found") })
 	@RequestMapping(value = "/saveCity", method = RequestMethod.POST, produces = "text/html")
-	public String SaveCity(Model model, @RequestBody CityEntity city) {
+	public String SaveCity(Model model, @RequestBody CreateCityModel city) {
 
 		cityService.save(city);
 
