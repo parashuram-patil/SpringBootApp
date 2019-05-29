@@ -10,5 +10,5 @@ public interface ICityService {
 
 	CityEntity save(CityEntity cityEntity);
 	
-	CityEntity findbyName(String cityName);
+	CityEntity searchByName(String cityName);
 }

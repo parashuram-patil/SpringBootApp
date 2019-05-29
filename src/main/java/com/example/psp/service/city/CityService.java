@@ -1,7 +1,6 @@
 package com.example.psp.service.city;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -34,7 +33,7 @@ public class CityService implements ICityService {
 	}
 
 	@Override
-	public CityEntity findbyName(String cityName) {
+	public CityEntity searchByName(String cityName) {
 
 		CityEntity cityEntity = null;
 		
