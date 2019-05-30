@@ -2,9 +2,9 @@ package com.example.psp.iservice.city;
 
 import java.util.List;
 
+import com.example.psp.exception.city.CityNotFoundException;
 import com.example.psp.model.citi.CreateCityModel;
 import com.example.psp.model.citi.GetCityModel;
-import com.psp.exception.city.CityNotFoundException;
 
 public interface ICityService {
 

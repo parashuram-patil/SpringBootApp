@@ -10,11 +10,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.psp.exception.ErrorResponse;
+import com.example.psp.exception.city.CityNotFoundException;
 import com.example.psp.iservice.city.ICityService;
 import com.example.psp.model.citi.CreateCityModel;
 import com.example.psp.model.citi.GetCityModel;
-import com.psp.exception.ErrorResponse;
-import com.psp.exception.city.CityNotFoundException;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

@@ -1,4 +1,4 @@
-package com.psp.exception;
+package com.example.psp.exception;
 
 import java.time.LocalDateTime;
 

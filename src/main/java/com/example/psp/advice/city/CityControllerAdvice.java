@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import com.psp.exception.ErrorResponse;
-import com.psp.exception.city.CityNotFoundException;
+import com.example.psp.exception.ErrorResponse;
+import com.example.psp.exception.city.CityNotFoundException;
 
 @ControllerAdvice
 public class CityControllerAdvice extends ResponseEntityExceptionHandler {

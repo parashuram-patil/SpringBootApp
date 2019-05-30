@@ -5,12 +5,12 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.example.psp.entity.citi.CityEntity;
+import com.example.psp.exception.city.CityNotFoundException;
 import com.example.psp.iservice.city.ICityService;
 import com.example.psp.model.citi.CreateCityModel;
 import com.example.psp.model.citi.GetCityModel;
 import com.example.psp.modelmpper.city.CityModelMpper;
 import com.example.psp.repository.citi.CityRepository;
-import com.psp.exception.city.CityNotFoundException;
 
 @Service
 public class CityService implements ICityService {

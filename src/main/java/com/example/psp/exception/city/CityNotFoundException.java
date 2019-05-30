@@ -1,4 +1,4 @@
-package com.psp.exception.city;
+package com.example.psp.exception.city;
 
 public class CityNotFoundException extends Exception {
 

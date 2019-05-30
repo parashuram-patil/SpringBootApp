@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.example.psp.exception.city.CityNotFoundException;
 import com.example.psp.iservice.city.ICityService;
 import com.example.psp.model.citi.CreateCityModel;
 import com.example.psp.model.citi.GetCityModel;
-import com.psp.exception.city.CityNotFoundException;
 
 import io.swagger.annotations.ApiParam;
 import springfox.documentation.annotations.ApiIgnore;
