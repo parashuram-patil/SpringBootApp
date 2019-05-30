@@ -1,7 +1,5 @@
 package com.example.psp.main;
 
-import static org.junit.Assert.assertEquals;
-
 import org.modelmapper.ModelMapper;
 
 import com.example.psp.entity.citi.CityEntity;
@@ -24,8 +22,10 @@ public class Test {
 		cityModel.setName("a");
 		cityModel.setPopulation(1);
 		CityEntity cityEntity = new ModelMapper().map(cityModel, CityEntity.class);
-		assertEquals(cityEntity.getName(), cityModel.getName());
-		assertEquals(cityEntity.getPopulation(), cityModel.getPopulation());
+		if (!cityEntity.getName().equals(cityModel.getName()))
+			System.err.println("Error in mapping City Name");
+		if (!(cityEntity.getPopulation() == cityModel.getPopulation()))
+			System.err.println("Error in mapping City Population");
 	}
 
 	private static void replaceStaticString() {
