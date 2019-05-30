@@ -1,9 +1,12 @@
 package com.example.psp.main;
 
 import org.modelmapper.ModelMapper;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 
 import com.example.psp.entity.citi.CityEntity;
 import com.example.psp.model.citi.CreateCityModel;
+import com.examples.ms.util.RestUtil;
 
 public class Test {
 
@@ -13,8 +16,16 @@ public class Test {
 		System.out.println("**********	Test	**********");
 
 		// replaceStaticString();
-		testModelMapper();
+		//testModelMapper();
+		printMediaType();
 
+	}
+
+	private static void printMediaType() {
+		
+		HttpHeaders createHeaders = RestUtil.getHeaders("aaaa", "aaaa", MediaType.APPLICATION_FORM_URLENCODED);
+		System.err.println(createHeaders.toString());
+		
 	}
 
 	private static void testModelMapper() {

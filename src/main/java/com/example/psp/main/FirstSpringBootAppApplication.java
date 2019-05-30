@@ -11,7 +11,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-@ComponentScan("com.example.psp.*")
+@ComponentScan("com.example.*")
 @EnableJpaRepositories(basePackages = "com.example.psp.repository")
 @EntityScan(basePackages = "com.example.psp.entity")
 public class FirstSpringBootAppApplication {
