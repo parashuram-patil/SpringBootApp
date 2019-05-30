@@ -28,9 +28,13 @@ dependencies {
 	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 	
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	
+	annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
 }
 
 
 bootRun {
     jvmArgs = ['-Xms1G', '-Xmx2G', '-Xrunjdwp:server=y,transport=dt_socket,address=4000,suspend=n']
 }
+
+compileJava.dependsOn(processResources)

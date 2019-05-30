@@ -1,0 +1,27 @@
+{
+	"properties": [
+		{
+			"name": "my.property",
+			"defaultValue": "something"
+		},
+		{
+			"name": "my.another.property",
+			"defaultValue": "something else"
+		}
+	],
+	"hints": [
+		{
+			"name": "my.property",
+			"values": [
+				{
+					"value": "nothing",
+					"description": "Does nothing."
+				},
+				{
+					"value": "something",
+					"description": "Does something."
+				}
+			]
+		}
+	]
+}
