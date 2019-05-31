@@ -10,11 +10,11 @@ import com.example.ms.service.token.GetToken;
 
 @RestController
 @RequestMapping("/ms")
-public class GetTokenController {
+public class MindSphereAccessController {
 
 	private GetToken getToken;
 
-	public GetTokenController(GetToken getToken) {
+	public MindSphereAccessController(GetToken getToken) {
 		this.getToken = getToken;
 	}
 

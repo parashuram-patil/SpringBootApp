@@ -12,6 +12,7 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
 import com.example.ms.model.TokenResponseModel;
+import com.example.psp.constants.Constants;
 import com.example.psp.constants.ConstantsValues;
 import com.examples.ms.util.RestUtil;
 
@@ -23,15 +24,12 @@ public class GetToken {
 
 	public TokenResponseModel getToken() {
 
-		String url = "https://psdigdev.piam.eu1.mindsphere.io/oauth/token";
-		//TokenResponseModel forObject = restTemplate.getForObject(url, TokenResponseModel.class);
-
 		HttpHeaders headers = RestUtil.getHeaders(ConstantsValues.CLIENT_ID,  ConstantsValues.CLIENT_SECRETE, MediaType.APPLICATION_FORM_URLENCODED);
 		MultiValueMap<String, String> body = new LinkedMultiValueMap<String, String>();
 		body.add("grant_type", "client_credentials");
 		HttpEntity<MultiValueMap<String, String>> resquestEntity = RestUtil.getResquestEntity(body, headers);
 
-		ResponseEntity<TokenResponseModel> exchange = restTemplate.exchange(url, HttpMethod.POST, resquestEntity, TokenResponseModel.class);
+		ResponseEntity<TokenResponseModel> exchange = restTemplate.exchange(Constants.GET_MS_TOKEN_URL, HttpMethod.POST, resquestEntity, TokenResponseModel.class);
 
 		return exchange.getBody();
 	}
