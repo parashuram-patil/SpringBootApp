@@ -2,8 +2,6 @@ package com.example.ms.model.asset;
 
 import java.util.List;
 
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-
 public class Assets {
 
 	private List<Variables> variables;
@@ -48,7 +46,7 @@ public class Assets {
 		return variables;
 	}
 
-	@JsonDeserialize(contentAs = Variables.class)
+	//@JsonDeserialize(contentAs = Variables.class)
 	public void setVariables(List<Variables> variables) {
 		this.variables = variables;
 	}
@@ -57,7 +55,7 @@ public class Assets {
 		return _links;
 	}
 
-	@JsonDeserialize(as = Links.class)
+	//@JsonDeserialize(as = Links.class)
 	public void set_links(Links _links) {
 		this._links = _links;
 	}
@@ -74,7 +72,7 @@ public class Assets {
 		return aspects;
 	}
 
-	@JsonDeserialize(contentAs = Aspect.class)
+	//@JsonDeserialize(contentAs = Aspect.class)
 	public void setAspects(List<Aspect> aspects) {
 		this.aspects = aspects;
 	}
@@ -107,7 +105,7 @@ public class Assets {
 		return locks;
 	}
 
-	@JsonDeserialize(contentAs = Locks.class)
+	//@JsonDeserialize(contentAs = Locks.class)
 	public void setLocks(List<Locks> locks) {
 		this.locks = locks;
 	}
@@ -188,7 +186,7 @@ public class Assets {
 		return location;
 	}
 
-	@JsonDeserialize(as = Location.class)
+	//@JsonDeserialize(as = Location.class)
 	public void setLocation(Location location) {
 		this.location = location;
 	}
@@ -197,7 +195,7 @@ public class Assets {
 		return fileAssignments;
 	}
 
-	@JsonDeserialize(contentAs = FileAssignments.class)
+	//@JsonDeserialize(contentAs = FileAssignments.class)
 	public void setFileAssignments(List<FileAssignments> fileAssignments) {
 		this.fileAssignments = fileAssignments;
 	}

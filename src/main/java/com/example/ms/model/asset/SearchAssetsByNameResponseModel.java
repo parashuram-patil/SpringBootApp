@@ -1,7 +1,5 @@
 package com.example.ms.model.asset;
 
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-
 public class SearchAssetsByNameResponseModel {
 	
 	private Embedded _embedded;
@@ -15,7 +13,7 @@ public class SearchAssetsByNameResponseModel {
         return _embedded;
     }
 
-	@JsonDeserialize(as = Embedded.class)
+	//@JsonDeserialize(as = Embedded.class)
     public void set_embedded (Embedded _embedded)
     {
         this._embedded = _embedded;
@@ -26,7 +24,7 @@ public class SearchAssetsByNameResponseModel {
         return _links;
     }
 
-    @JsonDeserialize(as = Links.class)
+    //@JsonDeserialize(as = Links.class)
     public void set_links (Links _links)
     {
         this._links = _links;
@@ -37,7 +35,7 @@ public class SearchAssetsByNameResponseModel {
         return page;
     }
 
-    @JsonDeserialize(as = Page.class)
+    //@JsonDeserialize(as = Page.class)
     public void setPage (Page page)
     {
         this.page = page;

@@ -1,7 +1,5 @@
 package com.example.ms.model.asset;
 
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-
 public class FileAssignments {
 	private Links _links;
 
@@ -13,7 +11,7 @@ public class FileAssignments {
 		return _links;
 	}
 
-	@JsonDeserialize(as = Links.class)
+	//@JsonDeserialize(as = Links.class)
 	public void set_links(Links _links) {
 		this._links = _links;
 	}

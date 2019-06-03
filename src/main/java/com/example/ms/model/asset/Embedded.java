@@ -2,8 +2,6 @@ package com.example.ms.model.asset;
 
 import java.util.List;
 
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-
 public class Embedded {
 	private List<Assets> assets;
 
@@ -11,7 +9,7 @@ public class Embedded {
 		return assets;
 	}
 
-	@JsonDeserialize(contentAs = Assets.class)
+	//@JsonDeserialize(contentAs = Assets.class)
 	public void setAssets(List<Assets> assets) {
 		this.assets = assets;
 	}

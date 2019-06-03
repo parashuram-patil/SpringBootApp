@@ -2,8 +2,6 @@ package com.example.ms.model.asset;
 
 import java.util.List;
 
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-
 public class Aspect {
 	
 	private List<Variables> variables;
@@ -14,7 +12,7 @@ public class Aspect {
 		return variables;
 	}
 
-	@JsonDeserialize(contentAs = Variables.class)
+	//@JsonDeserialize(contentAs = Variables.class)
 	public void setVariables(List<Variables> variables) {
 		this.variables = variables;
 	}

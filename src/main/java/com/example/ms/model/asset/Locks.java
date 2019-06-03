@@ -1,7 +1,5 @@
 package com.example.ms.model.asset;
 
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-
 public class Locks {
 	private String reason;
 
@@ -25,7 +23,7 @@ public class Locks {
 		return _links;
 	}
 
-	@JsonDeserialize(as = Links.class)
+	//@JsonDeserialize(as = Links.class)
 	public void set_links(Links _links) {
 		this._links = _links;
 	}

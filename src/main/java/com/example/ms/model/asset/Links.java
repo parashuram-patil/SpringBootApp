@@ -1,8 +1,5 @@
 package com.example.ms.model.asset;
 
-
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-
 public class Links {
 	private ParentLink parent;
 
@@ -24,7 +21,7 @@ public class Links {
 		return parent;
 	}
 
-	@JsonDeserialize(as = ParentLink.class)
+	//@JsonDeserialize(as = ParentLink.class)
 	public void setParent(ParentLink parent) {
 		this.parent = parent;
 	}
@@ -33,7 +30,7 @@ public class Links {
 		return variables;
 	}
 
-	@JsonDeserialize(as = VariableLink.class)
+	//@JsonDeserialize(as = VariableLink.class)
 	public void setVariables(VariableLink variables) {
 		this.variables = variables;
 	}
@@ -42,7 +39,7 @@ public class Links {
 		return download;
 	}
 
-	@JsonDeserialize(as = DownloadLink.class)
+	//@JsonDeserialize(as = DownloadLink.class)
 	public void setDownloadLink(DownloadLink download) {
 		this.download = download;
 	}
@@ -51,7 +48,7 @@ public class Links {
 		return metadata;
 	}
 
-	@JsonDeserialize(as = MetaDataLink.class)
+	//@JsonDeserialize(as = MetaDataLink.class)
 	public void setMetadata(MetaDataLink metadata) {
 		this.metadata = metadata;
 	}
@@ -60,7 +57,7 @@ public class Links {
 		return children;
 	}
 
-	@JsonDeserialize(as = ChildrenLink.class)
+	//@JsonDeserialize(as = ChildrenLink.class)
 	public void setChildrenLink(ChildrenLink children) {
 		this.children = children;
 	}
@@ -69,7 +66,7 @@ public class Links {
 		return aspects;
 	}
 
-	@JsonDeserialize(as = AspectLink.class)
+	//@JsonDeserialize(as = AspectLink.class)
 	public void setAspects(AspectLink aspects) {
 		this.aspects = aspects;
 	}
@@ -78,7 +75,7 @@ public class Links {
 		return self;
 	}
 
-	@JsonDeserialize(as = Self.class)
+	//@JsonDeserialize(as = Self.class)
 	public void setSelf(Self self) {
 		this.self = self;
 	}
@@ -87,7 +84,7 @@ public class Links {
 		return location;
 	}
 
-	@JsonDeserialize(as = LocationLink.class)
+	//@JsonDeserialize(as = LocationLink.class)
 	public void setLocation(LocationLink location) {
 		this.location = location;
 	}
