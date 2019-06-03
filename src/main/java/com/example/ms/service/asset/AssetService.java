@@ -29,7 +29,7 @@ public class AssetService {
 		
 		String accessToken = tokenService.getToken().getAccess_token();
 		HttpEntity<Object> resquestEntity = RestUtil.getResquestEntity(RestUtil.getHeaders(accessToken));
-		String filter = "{\"name\":{\"eq\":\":" + assetName + "\"}}";
+		String filter = "{\"name\":{\"eq\":\"" + assetName +"\"}}";
 		UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(Constants.MS_ASSSETS_BASE_URL)
 				.queryParam("filter", filter);
 		URI url = builder.build().encode().toUri();

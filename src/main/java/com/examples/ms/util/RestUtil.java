@@ -37,7 +37,6 @@ public class RestUtil {
 	public static HttpHeaders getHeaders(String accessToken) {
 		HttpHeaders httpHeaders = getHttpHeaders();
 		httpHeaders.setBearerAuth(accessToken);
-		httpHeaders.setAccept(Arrays.asList(MediaType.ALL));
 
 		return httpHeaders;
 	}
