@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import com.example.psp.constants.Constants;
-import com.example.psp.constants.ConstantsValues;
+import com.example.psp.constants.PropertyValues;
 import com.example.psp.exception.DevErrorResponse;
 import com.example.psp.exception.ErrorResponse;
 import com.example.psp.exception.city.CityNotFoundException;
@@ -27,7 +27,7 @@ public class CityControllerAdvice extends ResponseEntityExceptionHandler {
 	private ErrorResponse getErrorResponse(Exception ex) {
 		ErrorResponse errors = null;
 
-		if (ConstantsValues.ACTIVE_PROFILE.equals(Constants.PROFILE_DEV)) {
+		if (PropertyValues.ACTIVE_PROFILE.equals(Constants.PROFILE_DEV)) {
 			errors = new DevErrorResponse();
 			((DevErrorResponse) errors).setException(ex);
 

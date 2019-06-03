@@ -10,9 +10,13 @@ import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 
+import com.example.ms.model.asset.SearchAssetsByNameResponseModel;
 import com.example.psp.entity.citi.CityEntity;
 import com.example.psp.model.citi.CreateCityModel;
 import com.examples.ms.util.RestUtil;
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class Test {
 
@@ -24,8 +28,18 @@ public class Test {
 		// replaceStaticString();
 		// testModelMapper();
 		// printMediaType();
-		testTooManyFilesOpened();
+		//testTooManyFilesOpened();
+		deserialiseObject();
 
+	}
+
+	private static void deserialiseObject() throws JsonParseException, JsonMappingException, IOException {
+
+		String josnString = "{\"_embedded\":{\"assets\":[{\"assetId\":\"891491f9deac4249bf72cb47697cd059\",\"tenantId\":\"psdigdev\",\"name\":\"PSP_Demo_Agent\",\"etag\":1,\"externalId\":\"\",\"t2Tenant\":null,\"subTenant\":null,\"description\":\"\",\"timezone\":\"Europe/Berlin\",\"twinType\":\"performance\",\"parentId\":\"609c937e06094bd7adb9cbd6d422416a\",\"typeId\":\"core.mclib\",\"location\":{\"country\":\"United Kingdom\",\"region\":null,\"locality\":\"Warwick\",\"streetAddress\":\"Warwick Technology Park\",\"postalCode\":\"CV34 6DA\",\"longitude\":-1.563977,\"latitude\":52.274048},\"fileAssignments\":[],\"variables\":[],\"aspects\":[{\"name\":\"connectivityStatus\",\"variables\":[{\"name\":\"connected\",\"value\":\"false\"}]}],\"locks\":[{\"service\":\"AgentManagement\",\"reason\":\"Agent is onboarded, agent cannot be deleted. Only offboarded agents can be deleted.\",\"reasonCode\":\"agentmanagement.agent.onboarded\",\"_links\":{\"self\":{\"href\":\"https://gateway.eu1.mindsphere.io/api/assetmanagement/v3/assets/891491f9deac4249bf72cb47697cd059/locks/62980418fdd441dcb8a6660c6feff5ff\"}},\"id\":\"62980418fdd441dcb8a6660c6feff5ff\"}],\"deleted\":null,\"_links\":{\"self\":{\"href\":\"https://gateway.eu1.mindsphere.io/api/assetmanagement/v3/assets/891491f9deac4249bf72cb47697cd059\"},\"aspects\":{\"href\":\"https://gateway.eu1.mindsphere.io/api/assetmanagement/v3/assets/891491f9deac4249bf72cb47697cd059/aspects\"},\"variables\":{\"href\":\"https://gateway.eu1.mindsphere.io/api/assetmanagement/v3/assets/891491f9deac4249bf72cb47697cd059/variables\"},\"location\":{\"href\":\"https://gateway.eu1.mindsphere.io/api/assetmanagement/v3/assets/609c937e06094bd7adb9cbd6d422416a/location\"},\"parent\":{\"href\":\"https://gateway.eu1.mindsphere.io/api/assetmanagement/v3/assets/609c937e06094bd7adb9cbd6d422416a\"}}}]},\"_links\":{\"self\":{\"href\":\"https://gateway.eu1.mindsphere.io/api/assetmanagement/v3/assets?filter=%25257B%252522name%252522:%25257B%252522eq%252522:%252522PSP_Demo_Agent%252522%25257D%25257D&page=0&size=10&sort=name,asc\"}},\"page\":{\"size\":10,\"totalElements\":1,\"totalPages\":1,\"number\":0}}";
+		ObjectMapper mapper = new ObjectMapper();
+		SearchAssetsByNameResponseModel model = mapper.readValue(josnString, SearchAssetsByNameResponseModel.class);
+		String country = model.get_embedded().getAssets().get(0).getLocation().getCountry();
+		System.out.println(country);
 	}
 
 	private static void testTooManyFilesOpened() throws IOException {

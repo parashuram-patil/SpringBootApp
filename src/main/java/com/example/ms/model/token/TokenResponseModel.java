@@ -1,4 +1,4 @@
-package com.example.ms.model;
+package com.example.ms.model.token;
 
 public class TokenResponseModel {
 

@@ -1,6 +1,5 @@
 package com.example.ms.service.token;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -11,25 +10,30 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
-import com.example.ms.model.TokenResponseModel;
+import com.example.ms.model.token.TokenResponseModel;
 import com.example.psp.constants.Constants;
-import com.example.psp.constants.ConstantsValues;
+import com.example.psp.constants.PropertyValues;
 import com.examples.ms.util.RestUtil;
 
 @Service
-public class GetToken {
+public class TokenService {
 
-	@Autowired
 	private RestTemplate restTemplate;
+
+	public TokenService(RestTemplate restTemplate) {
+		this.restTemplate = restTemplate;
+	}
 
 	public TokenResponseModel getToken() {
 
-		HttpHeaders headers = RestUtil.getHeaders(ConstantsValues.CLIENT_ID,  ConstantsValues.CLIENT_SECRETE, MediaType.APPLICATION_FORM_URLENCODED);
+		HttpHeaders headers = RestUtil.getHeaders(PropertyValues.CLIENT_ID, PropertyValues.CLIENT_SECRETE,
+				MediaType.APPLICATION_FORM_URLENCODED);
 		MultiValueMap<String, String> body = new LinkedMultiValueMap<String, String>();
 		body.add("grant_type", "client_credentials");
 		HttpEntity<MultiValueMap<String, String>> resquestEntity = RestUtil.getResquestEntity(body, headers);
 
-		ResponseEntity<TokenResponseModel> exchange = restTemplate.exchange(Constants.GET_MS_TOKEN_URL, HttpMethod.POST, resquestEntity, TokenResponseModel.class);
+		ResponseEntity<TokenResponseModel> exchange = restTemplate.exchange(Constants.MS_TOKEN_URL, HttpMethod.POST,
+				resquestEntity, TokenResponseModel.class);
 
 		return exchange.getBody();
 	}

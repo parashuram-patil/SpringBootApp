@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class ConstantsValues {
+public class PropertyValues {
 
 	@Value("${spring.profiles.active}")
 	private String activeProfile;
