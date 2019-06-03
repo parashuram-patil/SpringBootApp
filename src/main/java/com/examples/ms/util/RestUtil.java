@@ -1,6 +1,7 @@
 package com.examples.ms.util;
 
 import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
 
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -35,12 +36,9 @@ public class RestUtil {
 
 	public static HttpHeaders getHeaders(String accessToken) {
 		HttpHeaders httpHeaders = getHttpHeaders();
-		//httpHeaders.set(HttpHeaders.AUTHORIZATION, "Bearer " + accessToken);
-		//httpHeaders.set(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE);
-		//httpHeaders.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
 		httpHeaders.setBearerAuth(accessToken);
-		httpHeaders.setContentType(MediaType.APPLICATION_JSON);
-		
+		httpHeaders.setAccept(Arrays.asList(MediaType.ALL));
+
 		return httpHeaders;
 	}
 

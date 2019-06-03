@@ -26,7 +26,7 @@ public class TokenService {
 
 	public TokenResponseModel getToken() {
 
-		HttpHeaders headers = RestUtil.getHeaders(PropertyValues.CLIENT_ID, PropertyValues.CLIENT_SECRETE,
+		HttpHeaders headers = RestUtil.getHeaders(PropertyValues.MINDSPHERE_CLIENT_ID, PropertyValues.MINDSPHERE_CLIENT_SECRET,
 				MediaType.APPLICATION_FORM_URLENCODED);
 		MultiValueMap<String, String> body = new LinkedMultiValueMap<String, String>();
 		body.add("grant_type", "client_credentials");

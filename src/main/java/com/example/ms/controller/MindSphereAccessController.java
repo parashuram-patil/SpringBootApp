@@ -23,16 +23,15 @@ public class MindSphereAccessController {
 		this.assetService = assetService;
 	}
 
-	@RequestMapping(value = "/token", method = RequestMethod.GET, produces = MediaType.APPLICATION_PROBLEM_JSON_UTF8_VALUE)
+	@RequestMapping(value = "/token", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public TokenResponseModel getToken() {
 
 		return tokenService.getToken();
 	}
-
-	@RequestMapping(value = "/asset/{assetName}", method = RequestMethod.GET, produces = MediaType.APPLICATION_PROBLEM_JSON_UTF8_VALUE)
-	public SearchAssetsByNameResponseModel getAssetsByName(@PathVariable String assetName) {
+	
+	@RequestMapping(value = "/asset/{assetName}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public SearchAssetsByNameResponseModel getAssetsByName(@PathVariable String assetName) throws Exception {
 
 		return assetService.getAssetsByName(assetName);
 	}
-
 }
