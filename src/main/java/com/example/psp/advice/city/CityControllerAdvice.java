@@ -36,7 +36,7 @@ public class CityControllerAdvice extends ResponseEntityExceptionHandler {
 		}
 
 		errors.setTimestamp(LocalDateTime.now());
-		errors.setError(ex.getMessage());
+		errors.setErrorMessage(ex.getMessage());
 		errors.setStatus(HttpStatus.NOT_FOUND.value());
 
 		return errors;

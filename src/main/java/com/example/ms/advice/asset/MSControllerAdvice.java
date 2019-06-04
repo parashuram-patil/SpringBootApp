@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import com.example.ms.exception.asset.SearchAssetExceptionException;
+import com.example.ms.exception.user.SearchUserException;
 import com.example.psp.constants.Constants;
 import com.example.psp.constants.PropertyValues;
 import com.example.psp.exception.DevErrorResponse;
@@ -21,7 +22,6 @@ public class MSControllerAdvice extends ResponseEntityExceptionHandler {
 	@ExceptionHandler(Exception.class)
 	protected ResponseEntity<ErrorResponse> handleException(Exception ex) {
 		ErrorResponse errors = getErrorResponse(ex);
-
 		return new ResponseEntity<>(errors, HttpStatus.NOT_FOUND);
 	}
 	
@@ -38,9 +38,17 @@ public class MSControllerAdvice extends ResponseEntityExceptionHandler {
 
 		return new ResponseEntity<>(errors, HttpStatus.NOT_FOUND);
 	}
+	
+	@ExceptionHandler(SearchUserException.class)
+	protected ResponseEntity<ErrorResponse> handleUsersException(SearchUserException ex) {
+		ErrorResponse errors = getErrorResponse(ex);
+
+		return new ResponseEntity<>(errors, HttpStatus.NOT_FOUND);
+	}
 
 
 	private ErrorResponse getErrorResponse(Exception ex) {
+		
 		ErrorResponse errors = null;
 
 		if (PropertyValues.ACTIVE_PROFILE.equals(Constants.PROFILE_DEV)) {
@@ -52,8 +60,9 @@ public class MSControllerAdvice extends ResponseEntityExceptionHandler {
 		}
 
 		errors.setTimestamp(LocalDateTime.now());
-		errors.setError(ex.getMessage());
+		errors.setErrorMessage(ex.getMessage());
 		errors.setStatus(HttpStatus.NOT_FOUND.value());
+		errors.setCause(ex.getClass().getSimpleName());
 
 		return errors;
 	}

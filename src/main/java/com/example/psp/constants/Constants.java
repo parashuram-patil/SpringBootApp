@@ -12,5 +12,6 @@ public class Constants {
 
 	public static final String MS_TOKEN_URL = "https://psdigdev.piam.eu1.mindsphere.io/oauth/token";
 	public static final String MS_ASSSETS_BASE_URL = "https://gateway.eu1.mindsphere.io/api/assetmanagement/v3/assets";
+	public static final String MS_USERS_BASE_URL = "https://gateway.eu1.mindsphere.io/api/identitymanagement/v3/Users";
 
 }
