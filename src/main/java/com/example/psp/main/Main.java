@@ -14,12 +14,12 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @ComponentScan("com.example.*")
 @EnableJpaRepositories(basePackages = "com.example.psp.repository")
 @EntityScan(basePackages = "com.example.psp.entity")
-public class FirstSpringBootAppApplication {
+public class Main {
 
-	private static Log logger = LogFactory.getLog(FirstSpringBootAppApplication.class);
+	private static Log logger = LogFactory.getLog(Main.class);
 
 	public static void main(String[] args) {
-		SpringApplication.run(FirstSpringBootAppApplication.class, args);
+		SpringApplication.run(Main.class, args);
 
 		Runtime runtime = Runtime.getRuntime();
 

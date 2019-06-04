@@ -34,7 +34,7 @@ public class MindSphereAccessController {
 		return tokenService.getToken();
 	}
 	
-	@RequestMapping(value = "/asset/{assetName}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/assets/{assetName}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public SearchAssetsByNameResponseModel getAssetsByName(@PathVariable String assetName) throws Exception {
 
 		return assetService.getAssetsByName(assetName);

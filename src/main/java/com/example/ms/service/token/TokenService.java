@@ -11,9 +11,9 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
 import com.example.ms.model.token.TokenResponseModel;
+import com.example.ms.util.RestUtil;
 import com.example.psp.constants.Constants;
 import com.example.psp.constants.PropertyValues;
-import com.examples.ms.util.RestUtil;
 
 @Service
 public class TokenService {

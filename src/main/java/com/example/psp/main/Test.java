@@ -11,9 +11,9 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 
 import com.example.ms.model.asset.SearchAssetsByNameResponseModel;
+import com.example.ms.util.RestUtil;
 import com.example.psp.entity.citi.CityEntity;
 import com.example.psp.model.citi.CreateCityModel;
-import com.examples.ms.util.RestUtil;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

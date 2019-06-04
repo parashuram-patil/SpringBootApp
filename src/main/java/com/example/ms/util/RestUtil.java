@@ -1,7 +1,6 @@
-package com.examples.ms.util;
+package com.example.ms.util;
 
 import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
 
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;

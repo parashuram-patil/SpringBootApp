@@ -14,8 +14,8 @@ import com.example.ms.exception.user.SearchUserException;
 import com.example.ms.model.user.GetUsersModel;
 import com.example.ms.model.user.UserModel;
 import com.example.ms.service.token.TokenService;
+import com.example.ms.util.RestUtil;
 import com.example.psp.constants.Constants;
-import com.examples.ms.util.RestUtil;
 
 @Service
 public class UserService {

@@ -11,8 +11,8 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import com.example.ms.model.asset.SearchAssetsByNameResponseModel;
 import com.example.ms.service.token.TokenService;
+import com.example.ms.util.RestUtil;
 import com.example.psp.constants.Constants;
-import com.examples.ms.util.RestUtil;
 
 @Service
 public class AssetService {
